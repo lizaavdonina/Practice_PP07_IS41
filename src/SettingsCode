@@ -13,12 +13,12 @@ private void button2_Click(object sender, EventArgs e)
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
             conn.Open();
-            txtInfo.AppendText("✅ Подключение успешно!");
+            txtInfo.AppendText(" Подключение успешно!");
         }
     }
     catch (Exception ex)
     {
-        txtInfo.AppendText($"❌ Ошибка: {ex.Message}");
+        txtInfo.AppendText($"Ошибка: {ex.Message}");
     }
 }
        
