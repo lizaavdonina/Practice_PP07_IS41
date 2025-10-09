@@ -1,0 +1,24 @@
+ private void button2_Click(object sender, EventArgs e)
+ {
+     string server = "localhost";
+     string database = "YourDBName";
+
+     // Строка подключения БЕЗ логина/пароля
+     string connectionString = $"Server={server};Database={database};Integrated Security=true;";
+
+     txtInfo.Text = $"Сервер: {server}\r\nБаза: {database}\r\n\r\nСтрока подключения:\r\n{connectionString}\r\n\r\n";
+
+     try
+     {
+         using (SqlConnection conn = new SqlConnection(connectionString))
+         {
+             conn.Open();
+             txtInfo.AppendText("Подключение успешно!");
+         }
+     }
+     catch (Exception ex)
+     {
+         txtInfo.AppendText($"Ошибка: {ex.Message}");
+     }
+ }
+       
